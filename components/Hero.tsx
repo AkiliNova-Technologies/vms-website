@@ -4,9 +4,9 @@ import { PlayCircle, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden h-[50vh] md:h-[60vh] lg:h-[75vh]">
       {/* Background Image Container - set height here */}
-      <div className="absolute inset-x-0 top-0 z-0 h-[60vh] md:h-[70vh] lg:h-[80vh]">
+      <div className="absolute inset-x-0 top-0 z-0 h-[50vh] md:h-[60vh] lg:h-[100vh] ">
         <Image
           src="/hero-image.jpeg"
           alt="Victoria Montessori School background"

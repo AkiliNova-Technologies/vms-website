@@ -6,12 +6,10 @@ import {
   MapPin,
   Phone,
   Mail,
-  Facebook,
-  Instagram,
-  Twitter,
   Menu,
   X,
 } from "lucide-react";
+import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok, IconBrandYoutube } from '@tabler/icons-react';
 import { nav, topContact } from "@/lib/site-data";
 import Image from "next/image";
 
@@ -49,13 +47,19 @@ export default function Header() {
             </Link>
             <span className="mx-1 h-3 w-px bg-primary-600" />
             <Link href="#" aria-label="Facebook" className="hover:text-accent">
-              <Facebook className="h-3.5 w-3.5" />
+              <IconBrandFacebook className="h-3.5 w-3.5" />
             </Link>
             <Link href="#" aria-label="Instagram" className="hover:text-accent">
-              <Instagram className="h-3.5 w-3.5" />
+              <IconBrandInstagram className="h-3.5 w-3.5" />
             </Link>
-            <Link href="#" aria-label="Twitter" className="hover:text-accent">
-              <Twitter className="h-3.5 w-3.5" />
+            <Link href="#" aria-label="TikTok" className="hover:text-accent">
+              <IconBrandTiktok className="h-3.5 w-3.5" />
+            </Link>
+            <Link href="#" aria-label="LinkedIn" className="hover:text-accent">
+              <IconBrandLinkedin className="h-3.5 w-3.5" />
+            </Link>
+            <Link href="#" aria-label="Youtube" className="hover:text-accent">
+              <IconBrandYoutube className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>

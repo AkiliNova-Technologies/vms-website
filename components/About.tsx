@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Heart, Globe2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { aboutPoints } from "@/lib/site-data";
 
 
@@ -49,20 +49,6 @@ export default function About() {
             <ArrowRight className="h-4 w-4" />
           </Link>
 
-          <div className="mt-10 flex flex-wrap gap-8 border-t border-primary-100 pt-6">
-            <div className="flex items-center gap-2.5">
-              <Heart className="h-5 w-5 text-accent" />
-              <span className="text-sm font-medium text-ink">
-                Caring, values-led community
-              </span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <Globe2 className="h-5 w-5 text-accent" />
-              <span className="text-sm font-medium text-ink">
-                Globally minded curriculum
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

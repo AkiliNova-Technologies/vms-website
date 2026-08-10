@@ -5,11 +5,8 @@ import {
   MapPin,
   Phone,
   Mail,
-  Facebook,
-  Instagram,
-  Youtube,
-  Linkedin,
 } from "lucide-react";
+import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok, IconBrandYoutube } from '@tabler/icons-react';
 import { footerLinks, topContact } from "@/lib/site-data";
 import Image from "next/image";
 
@@ -87,16 +84,19 @@ export default function Footer() {
 
           <div className="mt-5 flex gap-3">
             <Link href="#" aria-label="Facebook" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <Facebook className="h-4 w-4" />
+              <IconBrandFacebook className="h-4 w-4" />
             </Link>
             <Link href="#" aria-label="Instagram" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <Instagram className="h-4 w-4" />
+              <IconBrandInstagram className="h-4 w-4" />
             </Link>
             <Link href="#" aria-label="YouTube" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <Youtube className="h-4 w-4" />
+              <IconBrandYoutube className="h-4 w-4" />
             </Link>
             <Link href="#" aria-label="LinkedIn" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <Linkedin className="h-4 w-4" />
+              <IconBrandLinkedin className="h-4 w-4" />
+            </Link>
+            <Link href="#" aria-label="TikTok" className="rounded-full bg-primary-800 p-2 hover:text-accent">
+              <IconBrandTiktok className="h-4 w-4" />
             </Link>
           </div>
         </div>

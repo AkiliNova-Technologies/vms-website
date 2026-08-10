@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "../../Downloads/bright-future-school-nextjs/school-website/lib/site-data.ts"  ],
   "exclude": ["node_modules"]
 }

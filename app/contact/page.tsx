@@ -13,9 +13,17 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const mapQuery = encodeURIComponent(
-    "Plot 60-66 Ssebugwawo Road, Entebbe, Uganda"
-  );
+  const schoolLocation = {
+  name: "Victoria Montessori School",
+  address: "60–66 Sebuggwawo Rd, Entebbe, Uganda",
+  plusCode: "3FHH+HH Entebbe",
+  latitude: 0.0792240493866917,
+  longitude: 32.47887376660017,
+};
+
+const mapQuery = encodeURIComponent(
+  `${schoolLocation.name}, ${schoolLocation.address}, ${schoolLocation.plusCode}, ${schoolLocation.latitude}, ${schoolLocation.longitude}`,
+);
 
   return (
     <>
@@ -65,8 +73,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={`tel:${topContact.phone}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700"
-                    >
+                      className="mt-1 block text-sm text-muted hover:text-primary-700">
                       {topContact.phone}
                     </a>
                   </div>
@@ -82,8 +89,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={`https://wa.me/${topContact.whatsapp.replace(/[^0-9]/g, "")}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700"
-                    >
+                      className="mt-1 block text-sm text-muted hover:text-primary-700">
                       {topContact.whatsapp}
                     </a>
                   </div>
@@ -99,8 +105,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={`mailto:${topContact.email}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700"
-                    >
+                      className="mt-1 block text-sm text-muted hover:text-primary-700">
                       {topContact.email}
                     </a>
                   </div>
@@ -134,8 +139,8 @@ export default function ContactPage() {
                   Send Us an Enquiry
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Fill in the form below and our admissions team will get
-                  back to you as soon as possible.
+                  Fill in the form below and our admissions team will get back
+                  to you as soon as possible.
                 </p>
                 <ContactForm />
               </div>

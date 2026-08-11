@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 640, 768, 1024, 1280, 1536],
+    qualities: [75, 85, 95, 100],
   },
 };
 

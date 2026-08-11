@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MapPin,
   Phone,
@@ -15,6 +16,7 @@ import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -68,7 +70,7 @@ export default function Header() {
       {/* Main nav */}
       <div className="bg-white/95 shadow-sm backdrop-blur">
         <div className="container-page flex items-center justify-between py-3.5">
-          <Link href="#home" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo.jpg" alt="Victoria Montessori Logo" width={44} height={44} />
             <span className="leading-tight">
               <span className="block font-display text-base font-bold text-primary-800 sm:text-lg">
@@ -81,21 +83,27 @@ export default function Header() {
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
-            {nav.map((item, i) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                  i === 0 ? "text-primary-600" : "text-ink"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary-600 ${
+                    isActive ? "text-primary-600" : "text-ink"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link href="#admissions" className="btn-primary hidden sm:inline-flex">
+            <Link href="/admissions" className="btn-primary hidden sm:inline-flex">
               Apply Now
             </Link>
             <button
@@ -123,7 +131,7 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="#admissions" className="btn-primary mt-2 justify-center">
+              <Link href="/admissions" className="btn-primary mt-2 justify-center">
                 Apply Now
               </Link>
             </nav>

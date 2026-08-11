@@ -19,7 +19,8 @@ export default function AdmissionCTA() {
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-50">
                 Admissions are open. Visit us at Plot 60–66 Ssebugwawo Road,
-                Entebbe or get in touch: +256 772 619 865 • vmontessori@yahoo.co.uk.
+                Entebbe or get in touch: +256 772 619 865 •
+                vmontessori@yahoo.co.uk.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link href="#contact" className="btn-primary">
@@ -39,6 +40,8 @@ export default function AdmissionCTA() {
                 alt="Student smiling while heading to school"
                 fill
                 className="object-cover"
+                priority
+                quality={100}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600/40 to-transparent lg:from-primary-600/60" />
             </div>

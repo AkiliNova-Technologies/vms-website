@@ -2,7 +2,7 @@ export const nav = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Academics", href: "/academics" },
-  { label: "Admissions", href: "/admissions" },
+  { label: "Admissions & Fees", href: "/admissions" },
   { label: "News & Events", href: "/news" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },

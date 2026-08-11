@@ -1,128 +1,153 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Textarea } from "./ui/textarea";
+
+const fieldLabel = "text-xs font-semibold uppercase tracking-wide text-muted";
+
+const fieldControl =
+  "h-11 rounded-lg border-primary-100 focus-visible:border-primary-500 focus-visible:ring-primary-500/60";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [subject, setSubject] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire this up to your email service or API route.
+
+    // TODO: Wire this up to your email service or API route.
     setStatus("sent");
   }
 
   if (status === "sent") {
     return (
-      <div className="mt-8 flex items-start gap-3 rounded-xl2 bg-primary-50 p-6">
-        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-primary-600" />
-        <div>
-          <p className="font-display text-sm font-semibold text-primary-900">
-            Message sent
-          </p>
-          <p className="mt-1 text-sm text-muted">
-            Thank you for reaching out. Our admissions team will be in touch
-            shortly.
-          </p>
+      <div className="flex flex-col items-center justify-center rounded-xl2 border border-primary-100 bg-white px-6 py-12 text-center">
+        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-primary-100">
+          <CheckCircle2 className="h-7 w-7 text-primary-700" />
         </div>
+
+        <h3 className="font-display text-xl font-semibold text-primary-900">
+          Message sent
+        </h3>
+
+        <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
+          Thank you for reaching out. Our admissions team will be in touch
+          shortly.
+        </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label
-            htmlFor="name"
-            className="text-xs font-semibold uppercase tracking-wide text-muted"
-          >
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid gap-6 sm:grid-cols-2 mt-6">
+        {/* Full Name */}
+        <div className="space-y-2">
+          <Label htmlFor="full-name" className={fieldLabel}>
             Full Name
-          </label>
-          <input
-            id="name"
-            name="name"
+          </Label>
+
+          <Input
+            id="full-name"
+            name="fullName"
             type="text"
             required
-            className="mt-2 w-full rounded-lg border border-primary-100 px-4 py-2.5 text-sm text-ink outline-none focus:border-primary-500"
-            placeholder="Your name"
+            placeholder="Your full name"
+            className={fieldControl}
           />
         </div>
-        <div>
-          <label
-            htmlFor="phone"
-            className="text-xs font-semibold uppercase tracking-wide text-muted"
-          >
+
+        {/* Phone Number */}
+        <div className="space-y-2">
+          <Label htmlFor="phone" className={fieldLabel}>
             Phone Number
-          </label>
-          <input
+          </Label>
+
+          <Input
             id="phone"
             name="phone"
             type="tel"
-            className="mt-2 w-full rounded-lg border border-primary-100 px-4 py-2.5 text-sm text-ink outline-none focus:border-primary-500"
-            placeholder="+256 7XX XXX XXX"
+            required
+            placeholder="+256 700 000 000"
+            className={fieldControl}
           />
         </div>
       </div>
 
-      <div>
-        <label
-          htmlFor="email"
-          className="text-xs font-semibold uppercase tracking-wide text-muted"
-        >
+      {/* Email */}
+      <div className="space-y-2">
+        <Label htmlFor="email" className={fieldLabel}>
           Email Address
-        </label>
-        <input
+        </Label>
+
+        <Input
           id="email"
           name="email"
           type="email"
           required
-          className="mt-2 w-full rounded-lg border border-primary-100 px-4 py-2.5 text-sm text-ink outline-none focus:border-primary-500"
           placeholder="you@example.com"
+          className={fieldControl}
         />
       </div>
 
-      <div>
-        <label
-          htmlFor="subject"
-          className="text-xs font-semibold uppercase tracking-wide text-muted"
-        >
+      {/* Subject */}
+      <div className="space-y-2">
+        <Label htmlFor="subject" className={fieldLabel}>
           I&apos;m Enquiring About
-        </label>
-        <select
-          id="subject"
+        </Label>
+
+        <Select
           name="subject"
-          className="mt-2 w-full rounded-lg border border-primary-100 px-4 py-2.5 text-sm text-ink outline-none focus:border-primary-500"
-          defaultValue="Admissions"
-        >
-          <option>Admissions</option>
-          <option>Academics</option>
-          <option>Fees</option>
-          <option>General Enquiry</option>
-        </select>
+          value={subject}
+          onValueChange={(value) => setSubject(value ?? "Admissions")}>
+          <SelectTrigger id="subject" className={`w-full data-placeholder:text-muted-foreground ${fieldControl}`}>
+            <SelectValue placeholder="Select a subject"/>
+          </SelectTrigger>
+
+          <SelectContent className="rounded-lg border-primary-100 p-2">
+            <SelectItem className="rounded-md h-10" value="Admissions">Admissions</SelectItem>
+            <SelectItem className="rounded-md h-10" value="Academics">Academics</SelectItem>
+            <SelectItem className="rounded-md h-10" value="Fees">Fees</SelectItem>
+            <SelectItem className="rounded-md h-10" value="General Enquiry">General Enquiry</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
-      <div>
-        <label
-          htmlFor="message"
-          className="text-xs font-semibold uppercase tracking-wide text-muted"
-        >
+      {/* Message */}
+      <div className="space-y-2">
+        <Label htmlFor="message" className={fieldLabel}>
           Message
-        </label>
-        <textarea
+        </Label>
+
+        <Textarea
           id="message"
           name="message"
           required
           rows={5}
-          className="mt-2 w-full rounded-lg border border-primary-100 px-4 py-2.5 text-sm text-ink outline-none focus:border-primary-500"
           placeholder="Tell us about your child and how we can help..."
+          className="min-h-32 resize-none rounded-lg border-primary-100 focus-visible:border-primary-500 focus-visible:ring-primary-500/40"
         />
       </div>
 
-      <button type="submit" className="btn-primary w-full sm:w-auto">
+      {/* Submit */}
+      <Button
+        type="submit"
+        size="lg"
+        className="min-w-xs h-11 rounded-full bg-accent font-semibold text-primary-900 shadow-soft hover:bg-accent hover:brightness-105 active:brightness-95 sm:w-auto">
         Send Message
-        <Send className="h-4 w-4" />
-      </button>
+      </Button>
     </form>
   );
 }

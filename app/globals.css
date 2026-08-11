@@ -1,40 +1,121 @@
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --color-primary-50: #eff7fc;
+  --color-primary-100: #dceef9;
+  --color-primary-200: #b3daf1;
+  --color-primary-300: #84c3e7;
+  --color-primary-400: #5aa9da;
+  --color-primary-500: #3e93d1;
+  --color-primary-600: #2e76ac;
+  --color-primary-700: #245d89;
+  --color-primary-800: #1c4a6d;
+  --color-primary-900: #163a56;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: #f2a93b;
+  --color-accent-light: #fce9c9;
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-ink: #1e293b;
+  --color-muted: #64748b;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-xl2: 1.25rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-display: var(--font-poppins), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  --shadow-soft: 0 10px 30px -12px rgba(30, 95, 148, 0.18);
+  --shadow-card: 0 4px 20px -4px rgba(30, 95, 148, 0.12);
 }
 
-body {
-  @apply text-ink bg-white;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-@layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.18em] text-primary-600;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
+}
+
+@utility btn-primary {
+  @apply btn bg-accent text-primary-900 shadow-soft hover:brightness-105 active:brightness-95;
+}
+
+@utility btn-outline {
+  @apply btn border-2 border-white text-white hover:bg-white hover:text-primary-700;
+}
+
+@utility btn-outline-dark {
+  @apply btn border-2 border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white;
+}
+
+@layer utilities {
+  html {
+    scroll-behavior: smooth;
   }
 
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-primary-600;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
-  }
-
-  .btn-primary {
-    @apply btn bg-accent text-primary-900 shadow-soft hover:brightness-105 active:brightness-95;
-  }
-
-  .btn-outline {
-    @apply btn border-2 border-white text-white hover:bg-white hover:text-primary-700;
-  }
-
-  .btn-outline-dark {
-    @apply btn border-2 border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white;
+  body {
+    @apply text-ink bg-white;
   }
 }
 

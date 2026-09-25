@@ -11,19 +11,15 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Victoria Montessori School in Entebbe, Uganda by phone, WhatsApp, email or in person.",
 };
-
 export default function ContactPage() {
   const schoolLocation = {
-  name: "Victoria Montessori School",
-  address: "Plot 60–66 Ssebugwawo Road, Entebbe, Uganda",
-  plusCode: "3FHH+HH Entebbe",
-  latitude: 0.0792240493866917,
-  longitude: 32.47887376660017,
-};
+    latitude: 0.0792240493866917,
+    longitude: 32.47887376660017,
+  };
 
-const mapQuery = encodeURIComponent(
-  `${schoolLocation.name}, ${schoolLocation.address}, ${schoolLocation.plusCode}, ${schoolLocation.latitude}, ${schoolLocation.longitude}`,
-);
+  const mapQuery = encodeURIComponent(
+    `${schoolLocation.latitude},${schoolLocation.longitude}`,
+  );
 
   return (
     <>

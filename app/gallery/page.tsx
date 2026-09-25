@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
-import GalleryGrid from "@/components/GalleryGrid";
+import GalleryCollectionGrid from "@/components/gallery/GalleryCollectionGrid";
+import { galleryCollections } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Gallery | Victoria Montessori School",
   description:
-    "A glimpse into life at Victoria Montessori School — our campus, classrooms and community.",
+    "A glimpse into life at Victoria Montessori School our campus, classrooms and community.",
 };
 
 export default function GalleryPage() {
@@ -23,9 +24,9 @@ export default function GalleryPage() {
           breadcrumb="Gallery"
         />
 
-        <section className="py-16 sm:py-24">
+        <section className="section-space">
           <div className="container-page">
-            <GalleryGrid />
+            <GalleryCollectionGrid collections={galleryCollections} />
           </div>
         </section>
       </main>

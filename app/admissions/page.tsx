@@ -56,14 +56,14 @@ export default function AdmissionsPage() {
         <PageHeader
           eyebrow="Admissions & Fees"
           title="A Partnership with Families"
-          description="A child's education works best when the school and family work together. Here's how to begin."
+          description="A child&apos;s education works best when the school and family work together. Here&apos;s how to begin."
           image="/admissions-cta.jpeg"
           breadcrumb="Admissions"
         />
 
         {/* Info strip */}
-        <section className="py-16 sm:py-20">
-          <div className="container-page grid gap-5 sm:grid-cols-3">
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="container-page grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {admissionsInfo.map((item) => {
               const Icon = iconMap[item.icon] ?? Building2;
               return (
@@ -87,7 +87,7 @@ export default function AdmissionsPage() {
         </section>
 
         {/* Admissions process */}
-        <section className="bg-primary-50/60 py-16 sm:py-24">
+        <section className="section-space bg-primary-50/60">
           <div className="container-page">
             <div className="mx-auto max-w-2xl text-center">
               <span className="eyebrow">How to Apply</span>
@@ -96,7 +96,7 @@ export default function AdmissionsPage() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-5">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 xl:grid-cols-5">
               {admissionSteps.map((item) => (
                 <div
                   key={item.step}
@@ -118,20 +118,20 @@ export default function AdmissionsPage() {
         </section>
 
         {/* Requirements + image */}
-        <section className="py-16 sm:py-24">
-          <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+        <section className="section-space">
+          <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div className="overflow-hidden rounded-xl2 shadow-soft">
               <Image
                 src="/admissions-cta-2.jpeg"
                 alt="Children at Victoria Montessori School"
                 width={560}
                 height={480}
-                className="h-[440px] w-full object-cover"
+                className="h-72 w-full object-cover sm:h-96 lg:h-[440px]"
               />
             </div>
 
             <div>
-              <span className="eyebrow">What You'll Need</span>
+              <span className="eyebrow">What You&apos;ll Need</span>
               <h2 className="mt-3 font-display text-3xl font-bold text-primary-900 sm:text-4xl">
                 Application Requirements
               </h2>
@@ -158,7 +158,7 @@ export default function AdmissionsPage() {
         </section>
 
         {/* Fees */}
-        <section className="bg-primary-50/60 py-16 sm:py-24">
+        <section className="section-space bg-primary-50/60">
           <div className="container-page">
             <div className="mx-auto max-w-2xl text-center">
               <span className="eyebrow">Fees</span>
@@ -173,7 +173,7 @@ export default function AdmissionsPage() {
             </div>
 
             {/* Admission fee callout */}
-            <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-between gap-4 rounded-xl2 bg-primary-900 px-8 py-6 text-white">
+            <div className="mx-auto mt-8 flex max-w-3xl flex-col gap-4 rounded-xl2 bg-primary-900 px-6 py-6 text-white sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
               <div className="flex items-center gap-4">
                 <span className="inline-flex h-11 w-11 flex-none items-center justify-center rounded-full bg-accent text-primary-900">
                   <Sparkles className="h-5 w-5" />
@@ -193,21 +193,21 @@ export default function AdmissionsPage() {
             </div>
 
             {/* Tuition table */}
-            <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[640px] text-left text-sm">
+            <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card sm:mt-10">
+              <div className="overflow-x-auto overscroll-contain" tabIndex={0} aria-label="Tuition fee table. Scroll horizontally to view all columns.">
+                <table className="w-full min-w-[600px] text-left text-sm">
                   <thead>
                     <tr className="bg-primary-900 text-white">
-                      <th className="px-6 py-4 font-display text-xs font-semibold uppercase tracking-wide">
+                        <th className="px-4 py-4 font-display text-xs font-semibold uppercase tracking-wide sm:px-6">
                         Class
                       </th>
-                      <th className="px-6 py-4 font-display text-xs font-semibold uppercase tracking-wide">
+                        <th className="px-4 py-4 font-display text-xs font-semibold uppercase tracking-wide sm:px-6">
                         Entry Term Fee
                       </th>
-                      <th className="px-6 py-4 font-display text-xs font-semibold uppercase tracking-wide">
+                        <th className="px-4 py-4 font-display text-xs font-semibold uppercase tracking-wide sm:px-6">
                         Term II
                       </th>
-                      <th className="px-6 py-4 font-display text-xs font-semibold uppercase tracking-wide">
+                        <th className="px-4 py-4 font-display text-xs font-semibold uppercase tracking-wide sm:px-6">
                         Term III
                       </th>
                     </tr>
@@ -218,21 +218,21 @@ export default function AdmissionsPage() {
                         key={row.className}
                         className={i % 2 === 0 ? "bg-white" : "bg-primary-50/60"}
                       >
-                        <td className="px-6 py-4">
+                        <td className="px-4 py-4 sm:px-6">
                           <p className="font-medium text-primary-900">
                             {row.className}
                           </p>
                           <p className="text-xs text-muted">{row.note}</p>
                         </td>
-                        <td className="px-6 py-4 text-ink">{row.entryTerm}</td>
-                        <td className="px-6 py-4 text-ink">{row.termTwo}</td>
-                        <td className="px-6 py-4 text-ink">{row.termThree}</td>
+                        <td className="px-4 py-4 text-ink sm:px-6">{row.entryTerm}</td>
+                        <td className="px-4 py-4 text-ink sm:px-6">{row.termTwo}</td>
+                        <td className="px-4 py-4 text-ink sm:px-6">{row.termThree}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <div className="flex items-center gap-4 border-t border-primary-100 bg-accent-light px-6 py-5">
+              <div className="flex items-start gap-4 border-t border-primary-100 bg-accent-light px-5 py-5 sm:items-center sm:px-6">
                 <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-full bg-primary-800 text-white">
                   <ShieldCheck className="h-5 w-5" />
                 </span>
@@ -245,7 +245,7 @@ export default function AdmissionsPage() {
             </div>
 
             {/* Optional activities */}
-            <div className="mx-auto mt-10 max-w-5xl">
+            <div className="mx-auto mt-8 max-w-5xl sm:mt-10">
               <h3 className="font-display text-lg font-semibold text-primary-900">
                 Optional Activities
               </h3>
@@ -274,24 +274,24 @@ export default function AdmissionsPage() {
             </div>
 
             {/* Transport */}
-            <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card">
+            <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card sm:mt-10">
               <div className="flex items-center gap-3 border-b border-primary-100 px-6 py-5">
                 <Bus className="h-5 w-5 text-primary-700" />
                 <h3 className="font-display text-lg font-semibold text-primary-900">
                   Transport Rates by Distance
                 </h3>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[560px] text-left text-sm">
+              <div className="overflow-x-auto overscroll-contain" tabIndex={0} aria-label="Transport rates table. Scroll horizontally to view all columns.">
+                <table className="w-full min-w-[520px] text-left text-sm">
                   <thead>
                     <tr className="bg-primary-50">
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         Route / Area
                       </th>
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         One Way (per term)
                       </th>
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         Two Ways (per term)
                       </th>
                     </tr>
@@ -302,11 +302,11 @@ export default function AdmissionsPage() {
                         key={row.zone}
                         className={i % 2 === 0 ? "bg-white" : "bg-primary-50/60"}
                       >
-                        <td className="px-6 py-4 text-ink">{row.zone}</td>
-                        <td className="px-6 py-4 font-medium text-primary-900">
+                        <td className="px-4 py-4 text-ink sm:px-6">{row.zone}</td>
+                        <td className="px-4 py-4 font-medium text-primary-900 sm:px-6">
                           {row.oneWay}
                         </td>
-                        <td className="px-6 py-4 font-medium text-primary-900">
+                        <td className="px-4 py-4 font-medium text-primary-900 sm:px-6">
                           {row.twoWay}
                         </td>
                       </tr>
@@ -314,30 +314,30 @@ export default function AdmissionsPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="border-t border-primary-100 px-6 py-4 text-xs font-medium text-muted">
+              <p className="border-t border-primary-100 px-5 py-4 text-xs font-medium text-muted sm:px-6">
                 Note: Transport rates are not negotiable.
               </p>
             </div>
 
             {/* Uniforms */}
-            <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card">
+            <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl2 border border-primary-100 bg-white shadow-card sm:mt-10">
               <div className="flex items-center gap-3 border-b border-primary-100 px-6 py-5">
                 <Shirt className="h-5 w-5 text-primary-700" />
                 <h3 className="font-display text-lg font-semibold text-primary-900">
                   School Uniforms
                 </h3>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[480px] text-left text-sm">
+              <div className="overflow-x-auto overscroll-contain" tabIndex={0} aria-label="School uniform fee table. Scroll horizontally to view all columns.">
+                <table className="w-full min-w-[440px] text-left text-sm">
                   <thead>
                     <tr className="bg-primary-50">
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         Section
                       </th>
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         Girl
                       </th>
-                      <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                        <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary-700 sm:px-6">
                         Boy
                       </th>
                     </tr>
@@ -348,11 +348,11 @@ export default function AdmissionsPage() {
                         key={row.section}
                         className={i % 2 === 0 ? "bg-white" : "bg-primary-50/60"}
                       >
-                        <td className="px-6 py-4 text-ink">{row.section}</td>
-                        <td className="px-6 py-4 font-medium text-primary-900">
+                        <td className="px-4 py-4 text-ink sm:px-6">{row.section}</td>
+                        <td className="px-4 py-4 font-medium text-primary-900 sm:px-6">
                           {row.girl}
                         </td>
-                        <td className="px-6 py-4 font-medium text-primary-900">
+                        <td className="px-4 py-4 font-medium text-primary-900 sm:px-6">
                           {row.boy}
                         </td>
                       </tr>
@@ -360,14 +360,14 @@ export default function AdmissionsPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="border-t border-primary-100 px-6 py-4 text-xs text-muted">
+              <p className="border-t border-primary-100 px-5 py-4 text-xs text-muted sm:px-6">
                 Uniforms are available at the school. Cost is inclusive of
                 labelling.
               </p>
             </div>
 
             {/* Payment info */}
-            <div className="mx-auto mt-10 max-w-5xl">
+            <div className="mx-auto mt-8 max-w-5xl sm:mt-10">
               <h3 className="font-display text-lg font-semibold text-primary-900">
                 How to Pay
               </h3>
@@ -400,7 +400,7 @@ export default function AdmissionsPage() {
             </div>
 
             {/* Pledge + call for clarification */}
-            <div className="mx-auto mt-10 max-w-3xl rounded-xl2 bg-primary-900 px-8 py-8 text-center text-white">
+            <div className="mx-auto mt-8 max-w-3xl rounded-xl2 bg-primary-900 px-6 py-7 text-center text-white sm:mt-10 sm:px-8 sm:py-8">
               <p className="font-display text-lg font-semibold italic leading-snug sm:text-xl">
                 &ldquo;{feesPledge}&rdquo;
               </p>
@@ -420,7 +420,7 @@ export default function AdmissionsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 text-center sm:py-20">
+        <section className="py-12 text-center sm:py-16 lg:py-20">
           <div className="container-page">
             <h2 className="font-display text-2xl font-bold text-primary-900 sm:text-3xl">
               Ready to Begin the Admissions Process?

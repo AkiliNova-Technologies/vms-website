@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -14,6 +13,7 @@ import {
   SelectValue,
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
+import { topContact } from "@/lib/site-data";
 
 const fieldLabel = "text-xs font-semibold uppercase tracking-wide text-muted";
 
@@ -21,38 +21,19 @@ const fieldControl =
   "h-11 rounded-lg border-primary-100 focus-visible:border-primary-500 focus-visible:ring-primary-500/60";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [showFallback, setShowFallback] = useState(false);
   const [subject, setSubject] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // TODO: Wire this up to your email service or API route.
-    setStatus("sent");
-  }
-
-  if (status === "sent") {
-    return (
-      <div className="flex flex-col items-center justify-center rounded-xl2 border border-primary-100 bg-white px-6 py-12 text-center">
-        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-primary-100">
-          <CheckCircle2 className="h-7 w-7 text-primary-700" />
-        </div>
-
-        <h3 className="font-display text-xl font-semibold text-primary-900">
-          Message sent
-        </h3>
-
-        <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-          Thank you for reaching out. Our admissions team will be in touch
-          shortly.
-        </p>
-      </div>
-    );
+    // Keep the form ready for a future delivery service without claiming it sent.
+    setShowFallback(true);
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid gap-6 sm:grid-cols-2 mt-6">
+      <div className="mt-6 grid gap-5 md:grid-cols-2 md:gap-6">
         {/* Full Name */}
         <div className="space-y-2">
           <Label htmlFor="full-name" className={fieldLabel}>
@@ -145,9 +126,41 @@ export default function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="min-w-xs h-11 rounded-full bg-accent font-semibold text-primary-900 shadow-soft hover:bg-accent hover:brightness-105 active:brightness-95 sm:w-auto">
+        className="h-11 w-full min-w-0 rounded-full bg-accent font-semibold text-primary-900 shadow-soft hover:bg-accent hover:brightness-105 active:brightness-95 sm:w-auto">
         Send Message
       </Button>
+
+      {showFallback && (
+        <div className="rounded-xl2 border border-primary-100 bg-primary-50/60 p-5 text-sm leading-relaxed text-muted">
+          <p className="font-medium text-primary-900">
+            Online form delivery is not available yet.
+          </p>
+          <p className="mt-1">
+            Please contact the school directly by{" "}
+            <a
+              href={`https://wa.me/${topContact.whatsapp.replace(/[^0-9]/g, "")}`}
+              className="font-semibold text-primary-700 hover:underline"
+            >
+              WhatsApp
+            </a>
+            ,{" "}
+            <a
+              href={`tel:${topContact.phone}`}
+              className="font-semibold text-primary-700 hover:underline"
+            >
+              phone
+            </a>
+            , or{" "}
+            <a
+              href={`mailto:${topContact.email}`}
+              className="font-semibold text-primary-700 hover:underline"
+            >
+              email
+            </a>
+            .
+          </p>
+        </div>
+      )}
     </form>
   );
 }

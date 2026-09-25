@@ -27,7 +27,7 @@ import {
 export const metadata: Metadata = {
   title: "Academics | Victoria Montessori School",
   description:
-    "From 2-year-olds to Primary 7, explore our Montessori-based academic programme at Victoria Montessori School, Entebbe.",
+    "Explore Montessori-inspired education from early childhood through Primary Seven at Victoria Montessori School, Entebbe.",
 };
 
 const iconMap: Record<string, LucideIcon> = {
@@ -51,13 +51,13 @@ export default function AcademicsPage() {
         <PageHeader
           eyebrow="Academics"
           title="Learning from the Early Years to Primary"
-          description="A Montessori-based programme accommodating children from approximately 2 years through Primary 7."
+          description="A Montessori-inspired programme from early childhood through Primary Seven."
           image="/hero-image.jpeg"
           breadcrumb="Academics"
         />
 
         {/* Levels */}
-        <section className="py-16 sm:py-24">
+        <section className="section-space">
           <div className="container-page">
             <div className="mx-auto max-w-2xl text-center">
               <span className="eyebrow">Our Programme</span>
@@ -72,13 +72,13 @@ export default function AcademicsPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:gap-6">
               {academicLevels.map((level) => {
                 const Icon = iconMap[level.icon] ?? GraduationCap;
                 return (
                   <div
                     key={level.title}
-                    className="flex gap-5 rounded-xl2 border border-primary-100 p-7 shadow-card"
+                    className="flex gap-4 rounded-xl2 border border-primary-100 p-5 shadow-card sm:gap-5 sm:p-7"
                   >
                     <div className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-full bg-primary-800 text-white">
                       <Icon className="h-6 w-6" />
@@ -102,12 +102,12 @@ export default function AcademicsPage() {
         </section>
 
         {/* Teaching philosophy */}
-        <section className="bg-primary-50/60 py-16 sm:py-24">
-          <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+        <section className="section-space bg-primary-50/60">
+          <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
               <span className="eyebrow">Our Teaching Philosophy</span>
               <h2 className="mt-3 font-display text-3xl font-bold text-primary-900 sm:text-4xl">
-                Hands-On, Child-Led Learning
+                Hands On, Child Led Learning
               </h2>
               <p className="mt-5 leading-relaxed text-muted">
                 Our Montessori programme seeks to develop each child&apos;s
@@ -150,16 +150,16 @@ export default function AcademicsPage() {
         </section>
 
         {/* Balance callout */}
-        <section className="py-16 sm:py-20">
+        <section className="py-12 sm:py-16 lg:py-20">
           <div className="container-page">
-            <div className="rounded-xl2 bg-primary-900 px-8 py-12 text-center text-white sm:px-16">
+            <div className="rounded-xl2 bg-primary-900 px-6 py-10 text-center text-white sm:px-10 sm:py-12 lg:px-16">
               <h2 className="font-display text-2xl font-bold sm:text-3xl">
                 A Healthy Balance of Work, Exploration and Play
               </h2>
               <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/85">
                 We aim to create a stimulating and ordered learning
-                environment where children can discover the joy of learning —
-                building problem-solving abilities, decision-making, and the
+                environment where children can discover the joy of learning
+                building problem solving abilities, decision-making, and the
                 confidence to think for themselves.
               </p>
               <Link href="/admissions" className="btn-primary mt-7">

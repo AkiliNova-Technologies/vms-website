@@ -11,8 +11,8 @@ const icons = {
 export default function HighlightsBar() {
   return (
     <section className="relative z-10">
-      <div className="container-page -mt-10 sm:-mt-12">
-        <div className="grid grid-cols-1 gap-6 rounded-2xl bg-white p-6 shadow-card sm:grid-cols-2 sm:p-8 lg:grid-cols-4">
+      <div className="container-page -mt-8 sm:-mt-10">
+        <div className="grid grid-cols-1 gap-5 rounded-2xl bg-white p-5 shadow-card sm:grid-cols-2 sm:p-7 lg:grid-cols-4 lg:p-8">
           {heroHighlights.map((item) => {
             const Icon = icons[item.icon as keyof typeof icons];
             return (

@@ -9,13 +9,13 @@ import { topContact, officeHours } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Contact Us | Victoria Montessori School",
   description:
-    "Get in touch with Victoria Montessori School in Entebbe, Uganda — by phone, WhatsApp, email or in person.",
+    "Get in touch with Victoria Montessori School in Entebbe, Uganda by phone, WhatsApp, email or in person.",
 };
 
 export default function ContactPage() {
   const schoolLocation = {
   name: "Victoria Montessori School",
-  address: "60–66 Sebuggwawo Rd, Entebbe, Uganda",
+  address: "Plot 60–66 Ssebugwawo Road, Entebbe, Uganda",
   plusCode: "3FHH+HH Entebbe",
   latitude: 0.0792240493866917,
   longitude: 32.47887376660017,
@@ -37,10 +37,10 @@ const mapQuery = encodeURIComponent(
           breadcrumb="Contact"
         />
 
-        <section className="py-16 sm:py-24">
-          <div className="container-page grid gap-12 lg:grid-cols-5 lg:gap-10">
+        <section className="section-space">
+          <div className="container-page grid gap-10 xl:grid-cols-5 xl:gap-12">
             {/* Contact details */}
-            <div className="lg:col-span-2">
+            <div className="xl:col-span-2">
               <span className="eyebrow">Find Us</span>
               <h2 className="mt-3 font-display text-2xl font-bold text-primary-900 sm:text-3xl">
                 Visit or Reach Out
@@ -73,7 +73,7 @@ const mapQuery = encodeURIComponent(
                     </p>
                     <a
                       href={`tel:${topContact.phone}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700">
+                      className="mt-1 inline-block min-h-11 py-2 text-sm text-muted hover:text-primary-700">
                       {topContact.phone}
                     </a>
                   </div>
@@ -89,7 +89,7 @@ const mapQuery = encodeURIComponent(
                     </p>
                     <a
                       href={`https://wa.me/${topContact.whatsapp.replace(/[^0-9]/g, "")}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700">
+                      className="mt-1 inline-block min-h-11 py-2 text-sm text-muted hover:text-primary-700">
                       {topContact.whatsapp}
                     </a>
                   </div>
@@ -105,7 +105,7 @@ const mapQuery = encodeURIComponent(
                     </p>
                     <a
                       href={`mailto:${topContact.email}`}
-                      className="mt-1 block text-sm text-muted hover:text-primary-700">
+                      className="mt-1 inline-block min-h-11 py-2 text-sm text-muted hover:text-primary-700">
                       {topContact.email}
                     </a>
                   </div>
@@ -132,15 +132,15 @@ const mapQuery = encodeURIComponent(
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-3">
-              <div className="rounded-xl2 border border-primary-100 p-8 shadow-card sm:p-10">
+            <div className="xl:col-span-3">
+              <div className="rounded-xl2 border border-primary-100 p-6 shadow-card sm:p-10">
                 <span className="eyebrow">Send a Message</span>
                 <h2 className="mt-3 font-display text-2xl font-bold text-primary-900 sm:text-3xl">
                   Send Us an Enquiry
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Fill in the form below and our admissions team will get back
-                  to you as soon as possible.
+                  Use the form to organise your enquiry, then choose a direct
+                  contact option if you need to reach the school immediately.
                 </p>
                 <ContactForm />
               </div>
@@ -149,7 +149,7 @@ const mapQuery = encodeURIComponent(
         </section>
 
         {/* Map */}
-        <section className="pb-16 sm:pb-24">
+        <section className="pb-12 sm:pb-16 lg:pb-20">
           <div className="container-page">
             <div className="overflow-hidden rounded-xl2 shadow-soft">
               <iframe
@@ -157,6 +157,7 @@ const mapQuery = encodeURIComponent(
                 src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
                 width="100%"
                 height="420"
+                className="h-72 w-full sm:h-[420px]"
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

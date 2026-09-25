@@ -11,7 +11,7 @@ import {
 export default function Anniversary() {
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#071b4a] py-20 text-white sm:py-24">
+    <section className="relative isolate overflow-hidden bg-[#071b4a] py-14 text-white sm:py-20 lg:py-24">
       {/* Anniversary image */}
       <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[65%] bottom-10">
         <Image
@@ -35,7 +35,7 @@ export default function Anniversary() {
         <div className="absolute right-[15%] bottom-10 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
       </div>
 
-      <div className="container-page relative grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="container-page relative grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Left: retrospective announcement */}
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur-sm">
@@ -52,14 +52,14 @@ export default function Anniversary() {
 
           <p className="mt-5 max-w-lg leading-relaxed text-white/85">
             On April 25, 2026, we marked 25 years since our founding in
-            2001 — a milestone made possible by the generations of children,
+            2001 a milestone made possible by the generations of children,
             families and staff who have been part of the Victoria Montessori
             community. Thank you to everyone who joined us in celebrating.
           </p>
 
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link href="/gallery" className="btn-primary">
+          <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <Link href="/gallery" className="btn-primary w-full sm:w-auto">
               <Camera className="h-4 w-4" />
               See Celebration Photos
               <ArrowRight className="h-4 w-4" />
@@ -67,7 +67,7 @@ export default function Anniversary() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
             >
               Our Story Since 2001
             </Link>

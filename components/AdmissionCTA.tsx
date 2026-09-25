@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function AdmissionCTA() {
   return (
-    <section id="admissions" className="py-16 sm:py-24">
+    <section id="admissions" className="section-space">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-xl2 bg-primary-600">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="p-8 sm:p-12 lg:p-14">
+          <div className="grid gap-0 lg:grid-cols-2 lg:items-center">
+            <div className="p-7 sm:p-10 lg:p-14">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                 Admissions
               </span>
@@ -22,14 +22,10 @@ export default function AdmissionCTA() {
                 Entebbe or get in touch: +256 772 619 865 •
                 vmontessori@yahoo.co.uk.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="#contact" className="btn-primary">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <Link href="/admissions" className="btn-primary w-full sm:w-auto">
                   Apply for Admission
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link href="#" className="btn-outline">
-                  <Download className="h-4 w-4" />
-                  Download Prospectus
                 </Link>
               </div>
             </div>

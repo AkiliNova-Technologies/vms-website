@@ -6,7 +6,7 @@ const icons = { BookOpen, PenLine, FlaskConical, Trophy } as const;
 
 export default function Programs() {
   return (
-    <section id="academics" className="bg-primary-50/60 py-16 sm:py-24">
+    <section id="academics" className="section-space bg-primary-50/60">
       <div className="container-page">
         <div className="mx-auto max-w-xl text-center">
           <span className="eyebrow">Our Programs</span>
@@ -19,13 +19,13 @@ export default function Programs() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-6">
           {programs.map((program) => {
             const Icon = icons[program.icon as keyof typeof icons];
             return (
               <div
                 key={program.title}
-                className="group rounded-2xl bg-white p-6 shadow-card transition-transform duration-200 hover:-translate-y-1"
+                className="group rounded-2xl bg-white p-5 shadow-card transition-transform duration-200 hover:-translate-y-1 sm:p-6"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-600 group-hover:text-white">
                   <Icon className="h-6 w-6" />
@@ -40,7 +40,7 @@ export default function Programs() {
                   {program.description}
                 </p>
                 <Link
-                  href="#"
+                  href="/academics"
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700"
                 >
                   Learn More
@@ -51,8 +51,8 @@ export default function Programs() {
           })}
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <Link href="#" className="btn-outline-dark">
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <Link href="/academics" className="btn-outline-dark">
             View All Programs
             <ArrowRight className="h-4 w-4" />
           </Link>

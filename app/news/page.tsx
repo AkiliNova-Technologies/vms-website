@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
-import { newsItems } from "@/lib/site-data";
+import NewsEventsListing from "@/components/news/NewsEventsListing";
+import { getPublishedNewsEvents } from "@/lib/news-events-data";
 
 export const metadata: Metadata = {
   title: "News & Events | Victoria Montessori School",
@@ -20,56 +20,19 @@ export default function NewsPage() {
       <main>
         <PageHeader
           eyebrow="News & Events"
-          title="What's Happening at Victoria Montessori"
-          description="Announcements, upcoming events, and updates from around our school community."
+          title="News & Events"
+          description="Stay connected with the latest stories, announcements and upcoming activities from Victoria Montessori School."
           image="/hero-image.jpeg"
           breadcrumb="News & Events"
         />
 
-        <section className="py-16 sm:py-24">
+        <section className="section-space">
           <div className="container-page">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {newsItems.map((item) => (
-                <article
-                  key={item.title}
-                  className="overflow-hidden rounded-xl2 border border-primary-100 shadow-card transition hover:shadow-soft"
-                >
-                  <div className="relative h-48 w-full">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary-900">
-                      {item.category}
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-primary-500">
-                      <CalendarDays className="h-3.5 w-3.5" />
-                      {item.date}
-                    </span>
-                    <h3 className="mt-3 font-display text-lg font-semibold text-primary-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {item.excerpt}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {/* Placeholder-content notice: remove once real posts are added */}
-            <p className="mt-10 text-center text-xs text-muted">
-              Dates for upcoming events will be published here as they are
-              confirmed. Follow us on social media for the latest updates.
-            </p>
+            <NewsEventsListing items={getPublishedNewsEvents()} />
           </div>
         </section>
 
-        <section className="bg-primary-900 py-16 text-center text-white sm:py-20">
+        <section className="bg-primary-900 py-14 text-center text-white sm:py-16 lg:py-20">
           <div className="container-page">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Never Miss an Update

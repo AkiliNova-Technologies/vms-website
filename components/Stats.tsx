@@ -6,7 +6,7 @@ const icons = { GraduationCap, Users, UserCheck, Trophy } as const;
 export default function Stats() {
   return (
     <section className="bg-primary-700">
-      <div className="container-page grid grid-cols-2 gap-8 py-12 sm:grid-cols-4">
+      <div className="container-page grid grid-cols-2 gap-6 py-10 sm:grid-cols-4 sm:py-12">
         {stats.map((stat) => {
           const Icon = icons[stat.icon as keyof typeof icons];
           return (

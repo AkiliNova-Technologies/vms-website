@@ -86,7 +86,11 @@
 }
 
 @utility container-page {
-  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility section-space {
+  @apply py-12 sm:py-16 lg:py-20;
 }
 
 @utility eyebrow {
@@ -94,7 +98,7 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600;
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 sm:px-6 sm:py-3;
 }
 
 @utility btn-primary {
@@ -115,7 +119,26 @@
   }
 
   body {
-    @apply text-ink bg-white;
+    @apply overflow-x-hidden bg-white text-ink;
+  }
+
+  #home,
+  #about,
+  #academics,
+  #admissions,
+  #contact {
+    scroll-margin-top: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

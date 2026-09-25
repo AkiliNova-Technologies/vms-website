@@ -19,7 +19,7 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative h-[42vh] min-h-[340px] w-full">
+      <div className="relative h-[38svh] min-h-[300px] w-full sm:min-h-[340px] lg:h-[42vh]">
         <Image
           src={image}
           alt={title}
@@ -33,7 +33,7 @@ export default function PageHeader({
 
       <div className="absolute inset-0 flex items-center">
         <div className="container-page">
-          <div className="max-w-2xl text-white">
+          <div className="max-w-2xl py-8 text-white sm:py-10">
             <div className="flex items-center gap-1.5 text-xs font-medium text-white/70">
               <Link href="/" className="transition-colors hover:text-accent">
                 Home

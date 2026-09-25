@@ -16,6 +16,105 @@ export const topContact = {
   poBox: "P.O. Box 528, Entebbe",
 };
 
+export type SocialPlatform =
+  | "facebook"
+  | "instagram"
+  | "youtube"
+  | "twitter"
+  | "tiktok"
+  | "linkedin";
+
+export const socialLinks: ReadonlyArray<{
+  platform: SocialPlatform;
+  label: string;
+  url: string | null;
+}> = [
+  { platform: "facebook", label: "Facebook", url: null },
+  { platform: "instagram", label: "Instagram", url: null },
+  { platform: "youtube", label: "YouTube", url: null },
+  { platform: "twitter", label: "X / Twitter", url: null },
+  { platform: "tiktok", label: "TikTok", url: null },
+  { platform: "linkedin", label: "LinkedIn", url: null },
+];
+
+export const schoolIdentity = {
+  name: "Victoria Montessori School",
+  founded: "2001",
+  motto: "Knowledge is Wealth",
+  programmeDescriptor:
+    "Providing Montessori-inspired education from early childhood through Primary Seven.",
+};
+
+export type HeroSlide = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  highlightedTitle?: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imagePositionClassName?: string;
+  overlayClassName?: string;
+  primaryAction: {
+    label: string;
+    href: string;
+  };
+  secondaryAction?: {
+    label: string;
+    href: string;
+  };
+};
+
+export const heroSlides: HeroSlide[] = [
+  {
+    id: "welcome",
+    eyebrow: "Welcome to Victoria Montessori School",
+    title: "Nurturing Curious Minds.",
+    highlightedTitle: "Building Confident Individuals.",
+    description:
+      "Montessori-inspired education in Entebbe from early childhood through Primary Seven, nurturing independent, confident and responsible learners.",
+    image: "/hero-image.jpeg",
+    imageAlt: "Victoria Montessori School grounds",
+    primaryAction: { label: "Explore Our School", href: "#about" },
+    secondaryAction: { label: "Admissions", href: "/admissions" },
+  },
+  {
+    id: "anniversary",
+    eyebrow: "Celebrating 25 Years",
+    title: "25 Years of Learning, Growth & Purpose",
+    description:
+      "Since 2001, Victoria Montessori has supported generations of children, families and educators in Entebbe. On 25 April 2026, the school marked 25 years since its founding.",
+    image: "/vms-25th-anniversary.webp",
+    imageAlt: "Victoria Montessori School 25th Anniversary, April 25, 2026",
+    imagePositionClassName: "object-center sm:object-[60%_center] lg:object-[65%_center]",
+    overlayClassName:
+      "bg-gradient-to-r from-primary-900/90 via-primary-900/48 to-primary-900/10 sm:from-primary-900/85 sm:via-primary-900/35 sm:to-transparent",
+    primaryAction: { label: "Discover Our Story", href: "/about" },
+    secondaryAction: { label: "View Celebration", href: "/gallery/25th-anniversary" },
+  },
+  {
+    id: "montessori-learning",
+    eyebrow: "Montessori Learning",
+    title: "Learning Through Discovery, Independence & Purpose",
+    description:
+      "A child-centred approach that combines hands-on learning, prepared environments and growing responsibility.",
+    image: "/about-image.jpeg",
+    imageAlt: "A Victoria Montessori School building",
+    primaryAction: { label: "Explore Academics", href: "/academics" },
+  },
+  {
+    id: "admissions",
+    eyebrow: "Admissions & Visits",
+    title: "Begin Your Child's Journey at Victoria Montessori",
+    description:
+      "Learn about our programmes, arrange a school visit and speak with our admissions team.",
+    image: "/admissions-cta-2.jpeg",
+    imageAlt: "A Victoria Montessori School community scene",
+    primaryAction: { label: "View Admissions", href: "/admissions" },
+    secondaryAction: { label: "Contact Us", href: "/contact" },
+  },
+];
+
 export const officeHours = [
   { day: "Monday – Friday", hours: "8:00 AM – 5:00 PM" },
   { day: "Saturday", hours: "9:00 AM – 1:00 PM" },
@@ -34,8 +133,8 @@ export const heroHighlights = [
     icon: "Users",
   },
   {
-    title: "Accredited & Guided",
-    description: "Guided by American Montessori principles and accredited by national authorities.",
+    title: "Montessori Heritage",
+    description: "Rooted in a longstanding history of Montessori teacher training and international collaboration.",
     icon: "Globe2",
   },
   {
@@ -46,27 +145,27 @@ export const heroHighlights = [
 ];
 
 export const aboutPoints = [
-  "Founded in 2001 — Montessori education for children aged 2–12",
+  "Founded in 2001 Montessori-inspired education from early childhood through Primary Seven",
   "Mixed day and boarding school fostering independence and confidence",
-  "Accredited by the Ministry of Education and Sports; guided by American Montessori principles",
+  "A longstanding connection to the wider international Montessori community",
 ];
 
 export const programs = [
   {
     title: "Early Years",
-    grade: "Ages 2–6",
+    grade: "Early Childhood",
     description: "A carefully prepared Montessori environment that fosters exploration and independence.",
     icon: "BookOpen",
   },
   {
     title: "Lower Primary",
-    grade: "Ages 6–9",
+    grade: "Primary 1–3",
     description: "Hands-on learning that builds strong foundations in literacy, numeracy and practical life skills.",
     icon: "PenLine",
   },
   {
     title: "Upper Primary",
-    grade: "Ages 9–12",
+    grade: "Primary 4–7",
     description: "Focused academic growth with opportunities for creative and critical thinking.",
     icon: "FlaskConical",
   },
@@ -80,8 +179,8 @@ export const programs = [
 
 export const stats = [
   { value: "2001", label: "Founded", icon: "GraduationCap" },
-  { value: "2–12", label: "Age Range", icon: "Users" },
-  { value: "MoES", label: "Accredited", icon: "UserCheck" },
+  { value: "Early Years–P7", label: "Learning Journey", icon: "Users" },
+  { value: "Montessori", label: "Approach", icon: "UserCheck" },
   { value: "Day & Boarding", label: "Program Type", icon: "Trophy" },
 ];
 
@@ -95,13 +194,57 @@ export const footerLinks = {
     { label: "Gallery", href: "/gallery" },
     { label: "Contact Us", href: "/contact" },
   ],
-  resources: [
-    { label: "Parent Portal", href: "#" },
-    { label: "Student Portal", href: "#" },
-    { label: "Logins", href: "#" },
-    { label: "Privacy Policy", href: "#" },
+};
+
+export const founderProfile = {
+  name: "Mrs. Christine Olanya",
+  title: "Founder & Director",
+  paragraphs: [
+    "Victoria Montessori School was founded in 2001 by Christine Olanya and her husband, Joseph Olanya, with a vision of bringing child-centred Montessori education to families in Entebbe.",
+    "Christine's Montessori journey began through international educational collaboration in the late 1990s. In 1999, with support from members of the Montessori community in the United States, she travelled there for Montessori teacher training and completed an internship with North Shore Montessori Schools. She returned to Uganda in 2000 to begin planning a model Montessori school in Entebbe.",
+    "In 2001, that vision became Victoria Montessori School, initially opening its doors to approximately 30 preschool children. Under Christine's leadership, the school continued to grow, expanding its learning facilities and extending Montessori education into the primary years.",
+    "Christine's work has also extended beyond the classroom. In 2006, she received the Ursula Thrush Peace Seed Grant from the American Montessori Society, supporting peace education initiatives among children and schools in Uganda. In 2007, Christine and Joseph participated in the American Montessori Society's Global Forum at the United Nations, and the Victoria Montessori Teacher Training Center officially opened in Entebbe.",
+    "Her educational philosophy continues to centre on independence, peace, responsibility, confidence and respect for every child's individual potential.",
   ],
 };
+
+export const schoolJourney = [
+  {
+    year: "1999",
+    title: "Montessori Training",
+    description:
+      "Christine travels to the United States for Montessori teacher training and internship.",
+  },
+  {
+    year: "2000",
+    title: "Planning the Vision",
+    description:
+      "Christine returns to Uganda and begins planning a Montessori school in Entebbe.",
+  },
+  {
+    year: "2001",
+    title: "Victoria Montessori Opens",
+    description:
+      "The school opens with approximately 30 preschool children.",
+  },
+  {
+    year: "2004",
+    title: "Primary Expansion",
+    description: "A new five-room facility opens for elementary pupils.",
+  },
+  {
+    year: "2006",
+    title: "Education for Peace",
+    description:
+      "Christine receives the Ursula Thrush Peace Seed Grant from the American Montessori Society and develops peace-focused educational initiatives.",
+  },
+  {
+    year: "2007",
+    title: "Teacher Training",
+    description:
+      "The Victoria Montessori Teacher Training Center officially opens in Entebbe.",
+  },
+];
 
 // ------------------------------------------------------------------
 // About page
@@ -118,9 +261,9 @@ export const montessoriApproach = [
 ];
 
 export const wholeChildPillars = [
-  { title: "Spiritual Growth", description: "Developing character, inner peace, compassion, respect and strong moral values in a peaceful, orderly environment.", icon: "HeartHandshake" },
-  { title: "Intellectual Development", description: "Nurturing curiosity, creativity, critical thinking, academic ability and a lifelong desire to learn.", icon: "BrainCircuit" },
-  { title: "Social Responsibility", description: "Developing cooperation, courtesy, empathy, communication, independence and respect for others.", icon: "Users" },
+  { title: "Spiritual Objective", description: "Developing character, inner peace, compassion, respect and strong moral values in a peaceful, orderly environment.", icon: "HeartHandshake" },
+  { title: "Intellectual Objective", description: "Nurturing curiosity, creativity, critical thinking, academic ability and a lifelong desire to learn.", icon: "BrainCircuit" },
+  { title: "Social Objective", description: "Developing cooperation, courtesy, empathy, communication, independence and respect for others.", icon: "Users" },
 ];
 
 export const lifeSkills = [
@@ -143,8 +286,8 @@ export const academicLevels = [
 ];
 
 export const academicApproachPoints = [
-  "Guided by the principles of the American Montessori Society",
-  "Accredited by Uganda's Ministry of Education and Sports",
+  "Grounded in Montessori principles and a carefully prepared environment",
+  "Informed by Victoria Montessori's longstanding international Montessori connections",
   "Hands-on, child-led learning within a carefully prepared environment",
   "A healthy balance between work, exploration and play",
 ];
@@ -182,7 +325,7 @@ export const applicationRequirements = [
 export const admissionsInfo = [
   { title: "Day & Boarding", description: "Choose day scholar or boarding status based on what best suits your family.", icon: "Building2" },
   { title: "School Transport", description: "Van services are available on designated routes around Entebbe and surrounding areas.", icon: "Bus" },
-  { title: "Ages 2 to Primary 7", description: "Programmes span from 2–3 year olds through to Primary 7 learners.", icon: "GraduationCap" },
+  { title: "Early Childhood to Primary Seven", description: "Programmes span early childhood classes through to Primary Seven learners.", icon: "GraduationCap" },
 ];
 
 export const feesNote = {
@@ -233,7 +376,7 @@ export const boardingFee = {
 };
 
 export const optionalActivities = [
-  { name: "Swimming — every Thursday of the week", fee: "150,000/= per term" },
+  { name: "Swimming every Thursday of the week", fee: "150,000/= per term" },
   { name: "Music lessons (optional)", fee: "200,000/= per term" },
   { name: "Tour", fee: "Open" },
 ];
@@ -273,53 +416,71 @@ export const feesPledge =
   "We pledge to continue to provide the best all-round education using the Montessori approach of learning to our learners.";
 
 // ------------------------------------------------------------------
-// News & Events page
-// Sample/placeholder entries — replace with real school updates.
+// Gallery
+// Collections are intentionally neutral until additional school photography
+// and confirmed event details are available.
 // ------------------------------------------------------------------
-export const newsCategories = ["All", "School News", "Events", "Announcements"];
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
 
-export const newsItems = [
+export type GalleryCollection = {
+  slug: string;
+  title: string;
+  description?: string;
+  coverImage?: string;
+  images: GalleryImage[];
+};
+
+export const galleryCollections: GalleryCollection[] = [
   {
-    category: "Events",
-    title: "Open Day for Prospective Families",
-    excerpt: "Join us to tour our Montessori classrooms, meet our teachers and learn more about our approach to early learning.",
-    date: "Details to be announced",
-    image: "/hero-image.jpeg",
+    slug: "school-campus",
+    title: "School Campus",
+    description: "A view of the Victoria Montessori School environment.",
+    images: [
+      {
+        src: "/about-image.jpeg",
+        alt: "A Victoria Montessori School building",
+      },
+    ],
   },
   {
-    category: "School News",
-    title: "New Term Begins",
-    excerpt: "We're welcoming our pupils back for another term of exploration, discovery and growth.",
-    date: "Details to be announced",
-    image: "/about-image.jpeg",
+    slug: "learning-environment",
+    title: "Learning Environment",
+    description: "A collection of scenes from the school learning environment.",
+    images: [
+      {
+        src: "/admissions-cta.jpeg",
+        alt: "A Victoria Montessori School learning scene",
+      },
+    ],
   },
   {
-    category: "Announcements",
-    title: "2026 Admissions Now Open",
-    excerpt: "We are currently accepting applications for our Early Years and Primary programmes for the 2026 intake.",
-    date: "Ongoing",
-    image: "/admissions-cta.jpeg",
+    slug: "school-community",
+    title: "School Community",
+    description: "Everyday moments from the Victoria Montessori School community.",
+    images: [
+      {
+        src: "/admissions-cta-2.jpeg",
+        alt: "A Victoria Montessori School community scene",
+      },
+    ],
   },
   {
-    category: "Events",
-    title: "Parent–Teacher Engagement Day",
-    excerpt: "An opportunity for families to connect with teachers and discuss each child's progress and development.",
-    date: "Details to be announced",
-    image: "/admissions-cta-2.jpeg",
+    slug: "25th-anniversary",
+    title: "25th Anniversary",
+    description: "Victoria Montessori School's 25th anniversary in 2026.",
+    images: [
+      {
+        src: "/vms-25th-anniversary.webp",
+        alt: "Victoria Montessori School 25th Anniversary, April 25, 2026",
+      },
+    ],
   },
 ];
 
-// ------------------------------------------------------------------
-// Gallery page
-// Placeholder images reused from existing assets — replace with real photography.
-// ------------------------------------------------------------------
-export const galleryCategories = ["All", "Campus", "Classroom Life", "Events"];
-
-export const galleryImages = [
-  { src: "/hero-image.jpeg", alt: "Victoria Montessori School campus", category: "Campus" },
-  { src: "/about-image.jpeg", alt: "Victoria Montessori classroom building", category: "Campus" },
-  { src: "/admissions-cta.jpeg", alt: "Children learning at Victoria Montessori School", category: "Classroom Life" },
-  { src: "/admissions-cta-2.jpeg", alt: "Activities at Victoria Montessori School", category: "Events" },
-  { src: "/about-image.jpeg", alt: "Victoria Montessori School grounds", category: "Campus" },
-  { src: "/hero-image.jpeg", alt: "Victoria Montessori School community", category: "Events" },
-];
+export function getGalleryCollection(slug: string) {
+  return galleryCollections.find((collection) => collection.slug === slug);
+}

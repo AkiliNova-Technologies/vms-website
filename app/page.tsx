@@ -5,7 +5,6 @@ import About from "@/components/About";
 import Programs from "@/components/Programs";
 import AdmissionCTA from "@/components/AdmissionCTA";
 import Footer from "@/components/Footer";
-import Anniversary from "@/components/Anniversary";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Anniversary />
         <HighlightsBar />
         <About />
         <Programs />

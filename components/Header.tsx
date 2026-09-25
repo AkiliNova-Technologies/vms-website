@@ -10,9 +10,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok, IconBrandYoutube } from '@tabler/icons-react';
 import { nav, topContact } from "@/lib/site-data";
 import Image from "next/image";
+import SocialLinks from "./SocialLinks";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top utility bar */}
-      <div className="hidden bg-primary-800 text-primary-50 md:block">
+      <div className="hidden bg-primary-800 text-primary-50 xl:block">
         <div className="container-page flex items-center justify-between py-2 text-xs">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
@@ -37,33 +37,7 @@ export default function Header() {
               {topContact.email}
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="#" className="hover:text-accent">
-              Parents
-            </Link>
-            <Link href="#" className="hover:text-accent">
-              Students
-            </Link>
-            <Link href="#" className="hover:text-accent">
-              Staff
-            </Link>
-            <span className="mx-1 h-3 w-px bg-primary-600" />
-            <Link href="#" aria-label="Facebook" className="hover:text-accent">
-              <IconBrandFacebook className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="#" aria-label="Instagram" className="hover:text-accent">
-              <IconBrandInstagram className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="#" aria-label="TikTok" className="hover:text-accent">
-              <IconBrandTiktok className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="#" aria-label="LinkedIn" className="hover:text-accent">
-              <IconBrandLinkedin className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="#" aria-label="Youtube" className="hover:text-accent">
-              <IconBrandYoutube className="h-3.5 w-3.5" />
-            </Link>
-          </div>
+          <SocialLinks variant="header" />
         </div>
       </div>
 
@@ -82,7 +56,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-6 xl:flex">
             {nav.map((item) => {
               const isActive =
                 item.href === "/"
@@ -107,7 +81,7 @@ export default function Header() {
               Apply Now
             </Link>
             <button
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-primary-100 text-primary-700 lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-primary-100 text-primary-700 xl:hidden"
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -119,13 +93,13 @@ export default function Header() {
 
         {/* Mobile nav */}
         {open && (
-          <div className="border-t border-primary-100 bg-white lg:hidden">
-            <nav className="container-page flex flex-col gap-1 py-3">
+          <div className="border-t border-primary-100 bg-white xl:hidden">
+            <nav className="container-page flex flex-col gap-1 py-3 sm:py-4">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-lg px-2 py-2.5 text-sm font-medium text-ink hover:bg-primary-50 hover:text-primary-700"
+                  className="rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-primary-50 hover:text-primary-700"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

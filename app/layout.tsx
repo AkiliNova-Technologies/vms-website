@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter/Inter-Variable.ttf",
   variable: "--font-inter",
   display: "swap",
+  weight: "100 900",
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+const poppins = localFont({
+  src: [
+    { path: "./fonts/poppins/Poppins-Medium.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/poppins/Poppins-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/poppins/Poppins-Bold.ttf", weight: "700", style: "normal" },
+    { path: "./fonts/poppins/Poppins-ExtraBold.ttf", weight: "800", style: "normal" },
+  ],
   variable: "--font-poppins",
   display: "swap",
 });
@@ -18,7 +23,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Victoria Montessori School",
   description:
-    "Victoria Montessori School — Nurturing curious minds and building confident individuals through Montessori education for children aged 2–12.",
+    "Victoria Montessori School Montessori-inspired education from early childhood through Primary Seven in Entebbe, Uganda.",
 };
 
 export default function RootLayout({

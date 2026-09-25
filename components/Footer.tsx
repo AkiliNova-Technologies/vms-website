@@ -1,21 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
-import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok, IconBrandYoutube } from '@tabler/icons-react';
+import { MapPin, Phone, Mail } from "lucide-react";
 import { footerLinks, topContact } from "@/lib/site-data";
 import Image from "next/image";
+import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
   return (
     <footer id="contact" className="bg-primary-900 text-primary-100">
-      <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-page grid gap-10 py-12 sm:grid-cols-2 sm:py-14 xl:grid-cols-4 xl:gap-12">
         <div>
-          <Link href="#home" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo.jpg" alt="Victoria Montessori Logo" width={44} height={44} className="rounded-full" />
             <span className="leading-tight">
               <span className="block font-display text-base font-bold text-white">
@@ -26,10 +22,10 @@ export default function Footer() {
               </span>
             </span>
           </Link>
-          <p className="mt-4 text-sm leading-relaxed text-primary-200">
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-200">
             Nurturing curious minds and building confident individuals.
             <br />
-            Montessori education for children aged 2–12.
+            Montessori-inspired education from early childhood through Primary Seven.
           </p>
         </div>
 
@@ -37,7 +33,7 @@ export default function Footer() {
           <h4 className="font-display text-sm font-semibold uppercase tracking-wide text-white">
             Quick Links
           </h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <ul className="mt-4 space-y-3 text-sm">
             {footerLinks.quickLinks.map((link) => (
               <li key={link.label}>
                 <Link href={link.href} className="hover:text-accent">
@@ -52,15 +48,9 @@ export default function Footer() {
           <h4 className="font-display text-sm font-semibold uppercase tracking-wide text-white">
             Resources
           </h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {footerLinks.resources.map((link) => (
-              <li key={link.label}>
-                <Link href={link.href} className="hover:text-accent">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-4 text-sm leading-relaxed text-primary-200">
+            Parent and student portal access is coming soon.
+          </p>
         </div>
 
         <div>
@@ -81,24 +71,7 @@ export default function Footer() {
               {topContact.email}
             </li>
           </ul>
-
-          <div className="mt-5 flex gap-3">
-            <Link href="#" aria-label="Facebook" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <IconBrandFacebook className="h-4 w-4" />
-            </Link>
-            <Link href="#" aria-label="Instagram" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <IconBrandInstagram className="h-4 w-4" />
-            </Link>
-            <Link href="#" aria-label="YouTube" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <IconBrandYoutube className="h-4 w-4" />
-            </Link>
-            <Link href="#" aria-label="LinkedIn" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <IconBrandLinkedin className="h-4 w-4" />
-            </Link>
-            <Link href="#" aria-label="TikTok" className="rounded-full bg-primary-800 p-2 hover:text-accent">
-              <IconBrandTiktok className="h-4 w-4" />
-            </Link>
-          </div>
+          <SocialLinks variant="footer" />
         </div>
       </div>
 

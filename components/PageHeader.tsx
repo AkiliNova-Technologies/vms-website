@@ -7,6 +7,7 @@ interface PageHeaderProps {
   title: string;
   description?: string;
   image: string;
+  imageAlt?: string;
   breadcrumb: string;
 }
 
@@ -15,6 +16,7 @@ export default function PageHeader({
   title,
   description,
   image,
+  imageAlt,
   breadcrumb,
 }: PageHeaderProps) {
   return (
@@ -22,9 +24,10 @@ export default function PageHeader({
       <div className="relative h-[38svh] min-h-[300px] w-full sm:min-h-[340px] lg:h-[42vh]">
         <Image
           src={image}
-          alt={title}
+          alt={imageAlt ?? title}
           fill
           priority
+          sizes="100vw"
           quality={100}
           className="object-cover"
         />

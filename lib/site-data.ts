@@ -65,6 +65,14 @@ export type HeroSlide = {
   };
 };
 
+export const schoolImages = {
+  classroomLesson: "/students-classroom-lesson.png",
+  listeningInClass: "/students-listening-in-class.png",
+  montessoriFloorActivity: "/students-montessori-floor-activity.png",
+  writingAtClassroomDesk: "/students-writing-at-classroom-desk.png",
+  writingWorkbooks: "/students-writing-workbooks.png",
+} as const;
+
 export const heroSlides: HeroSlide[] = [
   {
     id: "welcome",
@@ -98,8 +106,9 @@ export const heroSlides: HeroSlide[] = [
     title: "Learning Through Discovery, Independence & Purpose",
     description:
       "A child-centred approach that combines hands-on learning, prepared environments and growing responsibility.",
-    image: "/about-image.jpeg",
-    imageAlt: "A Victoria Montessori School building",
+    image: schoolImages.montessoriFloorActivity,
+    imageAlt: "Students working together with learning materials on the classroom floor",
+    imagePositionClassName: "object-center",
     primaryAction: { label: "Explore Academics", href: "/academics" },
   },
   {
@@ -449,11 +458,33 @@ export const galleryCollections: GalleryCollection[] = [
   {
     slug: "learning-environment",
     title: "Learning Environment",
-    description: "A collection of scenes from the school learning environment.",
+    description: "Everyday classroom learning and Montessori activities at Victoria Montessori School.",
+    coverImage: schoolImages.montessoriFloorActivity,
     images: [
       {
-        src: "/admissions-cta.jpeg",
-        alt: "A Victoria Montessori School learning scene",
+        src: schoolImages.classroomLesson,
+        alt: "Students seated at desks during a classroom lesson",
+        caption: "Classroom learning",
+      },
+      {
+        src: schoolImages.writingWorkbooks,
+        alt: "Students writing in workbooks at a classroom table",
+        caption: "Focused workbook time",
+      },
+      {
+        src: schoolImages.montessoriFloorActivity,
+        alt: "Students working together with learning materials on the classroom floor",
+        caption: "Collaborative hands-on activity",
+      },
+      {
+        src: schoolImages.writingAtClassroomDesk,
+        alt: "Two students writing together at a classroom desk",
+        caption: "Learning together",
+      },
+      {
+        src: schoolImages.listeningInClass,
+        alt: "Students listening attentively during a classroom lesson",
+        caption: "Attentive learning",
       },
     ],
   },

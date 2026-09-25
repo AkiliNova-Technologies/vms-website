@@ -23,6 +23,7 @@ import {
   montessoriApproach,
   schoolIdentity,
   schoolJourney,
+  schoolImages,
   wholeChildPillars,
   lifeSkills,
 } from "@/lib/site-data";
@@ -54,7 +55,8 @@ export default function AboutPage() {
           eyebrow="About Us"
           title="Nurturing Curious Minds. Building Confident Individuals."
           description={schoolIdentity.programmeDescriptor}
-          image="/hero-image.jpeg"
+          image={schoolImages.classroomLesson}
+          imageAlt="Students seated at desks during a classroom lesson"
           breadcrumb="About Us"
         />
 

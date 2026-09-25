@@ -22,6 +22,7 @@ import {
   academicLevels,
   academicApproachPoints,
   academicSkillAreas,
+  schoolImages,
 } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -52,7 +53,8 @@ export default function AcademicsPage() {
           eyebrow="Academics"
           title="Learning from the Early Years to Primary"
           description="A Montessori-inspired programme from early childhood through Primary Seven."
-          image="/hero-image.jpeg"
+          image={schoolImages.writingWorkbooks}
+          imageAlt="Students writing in workbooks at a classroom table"
           breadcrumb="Academics"
         />
 

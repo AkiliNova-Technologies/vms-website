@@ -34,6 +34,7 @@ import {
   uniformFees,
   paymentBanks,
   feesPledge,
+  schoolImages,
 } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -122,10 +123,11 @@ export default function AdmissionsPage() {
           <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div className="overflow-hidden rounded-xl2 shadow-soft">
               <Image
-                src="/admissions-cta-2.jpeg"
-                alt="Children at Victoria Montessori School"
+                src={schoolImages.listeningInClass}
+                alt="Students listening attentively during a classroom lesson"
                 width={560}
                 height={480}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-72 w-full object-cover sm:h-96 lg:h-[440px]"
               />
             </div>
